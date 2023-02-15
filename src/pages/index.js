@@ -188,17 +188,15 @@ export default function Home() {
           </div>
         </section>
         <section>
-          <div className="flex  justify-center items-center">
+          <div className="flex p-1 justify-center items-center">
             <div className=" flex flex-col justify-between space-y-6 bg-gradient-to-r from-teal-700 to-teal-300 w-full p-8 rounded-xl shadow-lg text-white md:flex-row md:space-x-6 md:space-y-0">
               <div className="flex flex-col space-y-6 justify-between">
                 <div>
                 <h1 className="text-4xl font-bold tracking-wide ">
-                  Contact us!
+                  Contact Info!
                 </h1>
-                <p className="pt-2 text-cyan-100 text-sm">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dolore provident illum consequatur asperiores autem, veritatis
-                  sequi quo repudiandae qui,
+                <p className="pt-2 text-cyan-100 text-xl">
+                  For a more dierct contact solution please leave your Name, Email and a brief message. Look forward to hearing from you!
                 </p>
                 </div>
                 <div className="flex flex-col space-y-2">
