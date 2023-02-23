@@ -33,7 +33,7 @@ export default function Home() {
       <main className="bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900">
         <section className=" min-h-screen">
           <nav className="py-10 mb-12 flex justify-between">
-            <h1 className="tex-xl font-burtons dark:text-white">
+            <h1 className="text-xl font-burtons dark:text-white">
               Hello World!
             </h1>
             <ul className="flex items-center">
@@ -144,7 +144,7 @@ export default function Home() {
           </div>
           <div className=" flex mx-auto shadow-lg p-10 rounded-xl space-x-2 my-10 lg:flex gap-10">
             <div className="flex-col dark:text-white">
-              <h3 className="text-2xl font-burtons text-yellow-500 dark:text-white dark:text-yellow-500">
+              <h3 className="text-2xl font-burtons text-yellow-500 dark:text-white">
                 Rummage
               </h3>
               <p>
@@ -165,7 +165,7 @@ export default function Home() {
           </div>
           <div className=" flex mx-auto shadow-lg p-10 rounded-xl space-x-2 my-10">
             <div className="flex-col dark:text-white">
-              <h3 className="text-2xl font-burtons text-yellow-500 dark:text-white dark:text-yellow-500">
+              <h3 className="text-2xl font-burtons text-yellow-500 dark:text-yellow-500">
                 What to watch!
               </h3>
               <p>
@@ -210,17 +210,17 @@ export default function Home() {
               </div>
               <div>
                 <div className=" bg-white rounded-xl shadow-lg p-8 text-gray-600 ">
-                  <form action="" className="flex flex-col space-y-4">
+                  <form name="submit-to-google-sheet" action="https://script.google.com/macros/s/AKfycbzKdgQCjwNSs1Dd7RZAyLorrQjO5NciftcUxi5KERJ2ewMCWCTGd8vv9fGWuvlpnkuXGw/exec" method="POST" className="flex flex-col space-y-4">
                     <div>
                       <label htmlFor="" className="text-sm">Your name</label>
                       <div>
-                        <input type="text" placeholder="Your name" className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300" />
+                        <input type="text" name="Name" placeholder="Your name" className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300" />
                       </div>
                     </div>
                     <div>
                       <label htmlFor="" className="text-sm">Email Address</label>
                       <div>
-                        <input type="text" placeholder="Your Email" className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300" />
+                        <input type="text" name="Email" placeholder="Your Email" className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300" />
                       </div>
                     </div>
                     <div>
@@ -229,7 +229,7 @@ export default function Home() {
                         <textarea name="Message"  rows="4" className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300"></textarea>
                       </div>
                     </div>
-                    <button className="inline-block self-end bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm">Send Message!</button>
+                    <a href=""><button className="inline-block self-end bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm">Send Message!</button></a>
                   </form>
                 </div>
               </div>
@@ -237,6 +237,19 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <footer className="bg-gradient-r from-teal-300 to-teal100 text-black text-center"> Copyright c Mohamed Ahmed Made with NextJs</footer>
     </div>
   );
 }
+
+
+       
+// const scriptURL = 'https://script.google.com/macros/s/AKfycbzKdgQCjwNSs1Dd7RZAyLorrQjO5NciftcUxi5KERJ2ewMCWCTGd8vv9fGWuvlpnkuXGw/exec'
+// const form = document.forms['submit-to-google-sheet']
+
+// form.addEventListener('submit', e => {
+//   e.preventDefault()
+//   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+//     .then(response => console.log('Success!', response))
+//     .catch(error => console.error('Error!', error.message))
+// })
