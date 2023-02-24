@@ -274,12 +274,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="md:w-1/2">
-                <div className=" bg-white rounded-xl shadow-lg p-8 text-gray-600">
+                <div className=" flex justify-start bg-white rounded-xl shadow-lg p-8 text-gray-600">
                   <form
                     onSubmit={handleSubmit}
                     id="myForm"
                     className="flex flex-col space-y-4"
                   >
+                    
                     <div>
                       <label htmlFor="" className="text-sm">
                         Your name
@@ -329,6 +330,7 @@ export default function Home() {
                     >
                       Send Message!
                     </button>
+  
                   </form>
                   <span id="msg" className="block mt-5 "></span>
                 </div>
