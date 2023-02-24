@@ -16,11 +16,44 @@ import frontend from "public/Frontend.jpg";
 import backend from "public/Backend.jpg";
 import web1 from "public/web1.jpg";
 import web2 from "public/web-2.png";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    Name: "",
+    Email: "",
+    Message: "",
+  });
+  
+  const form = document.getElementById('myForm');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  // code to submit form data
+  form.reset(); // reset form fields
+});
+
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbxxSsUlfslKGGIL5l41H8DCV_5nWswMxH2t7yBM8nl4yxUWyF1dHdoFiciqLY3IbFvLjA/exec",
+      {
+        method: "POST",
+        body: new URLSearchParams(formData),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+  };
+  
   const [darkMode, setdarkMode] = useState(false);
   return (
     <div className={darkMode ? "dark" : ""}>
@@ -192,44 +225,81 @@ export default function Home() {
             <div className=" flex flex-col justify-between space-y-6 bg-gradient-to-r from-teal-700 to-teal-400 w-full p-8 rounded-xl shadow-lg text-white md:flex-row md:space-x-6 md:space-y-0">
               <div className="flex flex-col space-y-6 justify-between">
                 <div>
-                <h1 className="text-4xl font-bold tracking-wide ">
-                  Contact Info!
-                </h1>
-                <p className="pt-2 text-cyan-100 text-xl">
-                  For a more dierct contact solution please leave your Name, Email and a brief message. Look forward to hearing from you!
-                </p>
+                  <h1 className="text-4xl font-bold tracking-wide ">
+                    Contact Info!
+                  </h1>
+                  <p className="pt-2 text-cyan-100 text-xl">
+                    For a more dierct contact solution please leave your Name,
+                    Email and a brief message. Look forward to hearing from you!
+                  </p>
                 </div>
                 <div className="flex flex-col space-y-2">
-                <div className="inline-flex space-x-2 items-center">
-                  <AiFillPhone  className="text-teal-300 text-xl"/> <span>+(732) 298-4227</span>
-                </div>
-                <div className="inline-flex space-x-2 items-center">
-                  <AiFillMail className="text-teal-300 text-xl"/> <span>Mohamedahmed754@hotmail.com</span>
-                </div>
+                  <div className="inline-flex space-x-2 items-center">
+                    <AiFillPhone className="text-teal-300 text-xl" />{" "}
+                    <span>+(732) 298-4227</span>
+                  </div>
+                  <div className="inline-flex space-x-2 items-center">
+                    <AiFillMail className="text-teal-300 text-xl" />{" "}
+                    <span>Mohamedahmed754@hotmail.com</span>
+                  </div>
                 </div>
               </div>
               <div>
                 <div className=" bg-white rounded-xl shadow-lg p-8 text-gray-600 ">
-                  <form name="submit-to-google-sheet" action="https://script.google.com/macros/s/AKfycbzKdgQCjwNSs1Dd7RZAyLorrQjO5NciftcUxi5KERJ2ewMCWCTGd8vv9fGWuvlpnkuXGw/exec" method="POST" className="flex flex-col space-y-4">
+                  <form
+                    onSubmit={handleSubmit}
+                    id="myForm"
+                    className="flex flex-col space-y-4"
+                  >
                     <div>
-                      <label htmlFor="" className="text-sm">Your name</label>
+                      <label htmlFor="" className="text-sm">
+                        Your name
+                      </label>
                       <div>
-                        <input type="text" name="Name" placeholder="Your name" className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300" />
+                        <input
+                          type="text"
+                          name="Name"
+                          onChange={handleChange}
+                          placeholder="Your name"
+                          className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300"
+                        />
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="" className="text-sm">Email Address</label>
+                      <label htmlFor="" className="text-sm">
+                        Email Address
+                      </label>
                       <div>
-                        <input type="text" name="Email" placeholder="Your Email" className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300" />
+                        <input
+                          type="text"
+                          name="Email"
+                          onChange={handleChange}
+                          placeholder="Your Email"
+                          className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300"
+                        />
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="" className="text-sm">Message</label>
+                      <label htmlFor="" className="text-sm">
+                        Message
+                      </label>
                       <div>
-                        <textarea name="Message"  rows="4" className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300"></textarea>
+                        <textarea
+                          name="Message"
+                          onChange={handleChange}
+                          rows="4"
+                          className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300"
+                        ></textarea>
                       </div>
                     </div>
-                    <a href=""><button className="inline-block self-end bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm">Send Message!</button></a>
+                    <a href="https://kingcoding-orcin-ten.vercel.app/">
+                      <button
+                        type="submit"
+                        className="inline-block self-end bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm"
+                      >
+                        Send Message!
+                      </button>
+                    </a>
                   </form>
                 </div>
               </div>
@@ -237,19 +307,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="bg-gradient-r from-teal-300 to-teal100 text-black text-center"> Copyright c Mohamed Ahmed Made with NextJs</footer>
     </div>
   );
 }
-
-
-       
-// const scriptURL = 'https://script.google.com/macros/s/AKfycbzKdgQCjwNSs1Dd7RZAyLorrQjO5NciftcUxi5KERJ2ewMCWCTGd8vv9fGWuvlpnkuXGw/exec'
-// const form = document.forms['submit-to-google-sheet']
-
-// form.addEventListener('submit', e => {
-//   e.preventDefault()
-//   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-//     .then(response => console.log('Success!', response))
-//     .catch(error => console.error('Error!', error.message))
-// })
