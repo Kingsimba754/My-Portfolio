@@ -26,13 +26,18 @@ export default function Home() {
     Email: "",
     Message: "",
   });
-  
+  if (typeof document !== 'undefined') {
   const form = document.getElementById('myForm');
+  const msg = document.getElementById('msg');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   // code to submit form data
   form.reset(); // reset form fields
 });
+} else {
+  console.log('Running in a non-browser environment.');
+  // do something else here
+};
 
   const handleChange = (event) => {
     setFormData({
@@ -50,6 +55,16 @@ form.addEventListener('submit', (event) => {
         body: new URLSearchParams(formData),
       }
     );
+    if (response.ok) {
+      msg.innerHTML = "Message was sent successfully";
+      setTimeout(() => {
+        msg.innerHTML = "";
+      }, 5000);
+    } else {
+      // handle error
+      console.log("Error sending message:", response.status);
+    }
+    
     const data = await response.json();
     console.log(data);
   };
@@ -301,6 +316,7 @@ form.addEventListener('submit', (event) => {
                       </button>
                     </a>
                   </form>
+                  <span id="msg" className="block mt-5 "></span>
                 </div>
               </div>
             </div>
