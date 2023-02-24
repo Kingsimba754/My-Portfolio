@@ -26,18 +26,18 @@ export default function Home() {
     Email: "",
     Message: "",
   });
-  if (typeof document !== 'undefined') {
-  const form = document.getElementById('myForm');
-  const msg = document.getElementById('msg');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  // code to submit form data
-  form.reset(); // reset form fields
-});
-} else {
-  console.log('Running in a non-browser environment.');
-  // do something else here
-};
+  if (typeof document !== "undefined") {
+    const form = document.getElementById("myForm");
+    const msg = document.getElementById("msg");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      // code to submit form data
+      form.reset(); // reset form fields
+    });
+  } else {
+    console.log("Running in a non-browser environment.");
+    // do something else here
+  }
 
   const handleChange = (event) => {
     setFormData({
@@ -64,11 +64,11 @@ form.addEventListener('submit', (event) => {
       // handle error
       console.log("Error sending message:", response.status);
     }
-    
+
     const data = await response.json();
     console.log(data);
   };
-  
+
   const [darkMode, setdarkMode] = useState(false);
   return (
     <div className={darkMode ? "dark" : ""}>
@@ -190,8 +190,8 @@ form.addEventListener('submit', (event) => {
               Projects
             </h3>
           </div>
-          <div className=" flex mx-auto shadow-lg p-10 rounded-xl space-x-2 my-10 lg:flex gap-10">
-            <div className="flex-col dark:text-white">
+          <div className="flex flex-col md:flex-row items-center mx-auto shadow-lg p-10 rounded-xl space-x-2 my-10 gap-10">
+            <div className="flex flex-col md:w-1/2 dark:text-white">
               <h3 className="text-2xl font-burtons text-yellow-500 dark:text-white">
                 Rummage
               </h3>
@@ -206,13 +206,20 @@ form.addEventListener('submit', (event) => {
                 href="https://github.com/Kingsimba754/Rummage-Frontend"
                 target={"_blank"}
               >
-                <AiFillGithub className=" text-5xl mt-10 mx-auto" />
+                <AiFillGithub className="text-5xl mt-10 mx-auto" />
               </a>
             </div>
-            <Image className="rounded-md" src={web1} width={300} height={300} />
+            <div className="flex justify-center md:w-1/2">
+              <Image
+                className="rounded-md max-w-sm md:max-w-full"
+                src={web1}
+                width={300}
+                height={300}
+              />
+            </div>
           </div>
-          <div className=" flex mx-auto shadow-lg p-10 rounded-xl space-x-2 my-10">
-            <div className="flex-col dark:text-white">
+          <div className="flex flex-col md:flex-row items-center mx-auto shadow-lg p-10 rounded-xl space-x-2 my-10 gap-10">
+            <div className="flex flex-col md:w-1/2 dark:text-white">
               <h3 className="text-2xl font-burtons text-yellow-500 dark:text-yellow-500">
                 What to watch!
               </h3>
@@ -232,15 +239,22 @@ form.addEventListener('submit', (event) => {
                 <AiFillGithub className=" text-5xl mt-10 mx-auto" />
               </a>
             </div>
-            <Image className="rounded-md" src={web2} width={300} height={300} />
+            <div className="flex justify-center md:w-1/2">
+              <Image
+                className="rounded-md max-w-sm md:max-w-full"
+                src={web2}
+                width={300}
+                height={300}
+              />
+            </div>
           </div>
         </section>
         <section>
           <div className="flex p-1 justify-center items-center">
-            <div className=" flex flex-col justify-between space-y-6 bg-gradient-to-r from-teal-700 to-teal-400 w-full p-8 rounded-xl shadow-lg text-white md:flex-row md:space-x-6 md:space-y-0">
-              <div className="flex flex-col space-y-6 justify-between">
+            <div className="flex flex-col space-y-6 bg-gradient-to-r from-teal-700 to-teal-400 w-full p-8 rounded-xl shadow-lg text-white md:flex-row md:space-x-6 md:space-y-0">
+              <div className="flex flex-col space-y-6 justify-between md:w-1/2">
                 <div>
-                  <h1 className="text-4xl font-bold tracking-wide ">
+                  <h1 className="text-4xl font-bold tracking-wide">
                     Contact Info!
                   </h1>
                   <p className="pt-2 text-cyan-100 text-xl">
@@ -259,8 +273,8 @@ form.addEventListener('submit', (event) => {
                   </div>
                 </div>
               </div>
-              <div>
-                <div className=" bg-white rounded-xl shadow-lg p-8 text-gray-600 ">
+              <div className="md:w-1/2">
+                <div className=" bg-white rounded-xl shadow-lg p-8 text-gray-600">
                   <form
                     onSubmit={handleSubmit}
                     id="myForm"
@@ -274,9 +288,10 @@ form.addEventListener('submit', (event) => {
                         <input
                           type="text"
                           name="Name"
+                          required
                           onChange={handleChange}
                           placeholder="Your name"
-                          className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300"
+                          className=" ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300"
                         />
                       </div>
                     </div>
@@ -286,8 +301,9 @@ form.addEventListener('submit', (event) => {
                       </label>
                       <div>
                         <input
-                          type="text"
+                          type="email"
                           name="Email"
+                          required
                           onChange={handleChange}
                           placeholder="Your Email"
                           className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300"
@@ -307,14 +323,12 @@ form.addEventListener('submit', (event) => {
                         ></textarea>
                       </div>
                     </div>
-                    <a href="https://kingcoding-orcin-ten.vercel.app/">
-                      <button
-                        type="submit"
-                        className="inline-block self-end bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm"
-                      >
-                        Send Message!
-                      </button>
-                    </a>
+                    <button
+                      type="submit"
+                      className="inline-block self-end bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm"
+                    >
+                      Send Message!
+                    </button>
                   </form>
                   <span id="msg" className="block mt-5 "></span>
                 </div>
