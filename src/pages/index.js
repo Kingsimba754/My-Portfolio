@@ -323,6 +323,7 @@ export default function Home() {
                           className="ring-1 ring-gray-300 rounded-md px-4 py-2 mt-2 oultine-none focus:ring-2 focus:ring-teal-300"
                         ></textarea>
                       </div>
+                    <span id="msg" className="block mt-5 "></span>
                     </div>
                     <button
                       type="submit"
@@ -332,7 +333,6 @@ export default function Home() {
                     </button>
   
                   </form>
-                  <span id="msg" className="block mt-5 "></span>
                 </div>
               </div>
             </div>
