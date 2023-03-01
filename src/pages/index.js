@@ -94,7 +94,7 @@ export default function Home() {
               <li>
                 <a
                   className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8"
-                  href="Resume 2023.DOCX.pdf"
+                  href="Resume 2023.pdf"
                   target={"_blank"}
                 >
                   Resume
@@ -112,7 +112,7 @@ export default function Home() {
             </p>
           </div>
           <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-white">
-            <AiFillTwitterCircle />
+  
             <a
               href="https://www.linkedin.com/in/mohamed-ahmed-97421015a/"
               target={"_blank"}
