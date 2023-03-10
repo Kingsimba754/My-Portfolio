@@ -258,7 +258,7 @@ export default function Home() {
                     Contact Info!
                   </h1>
                   <p className="pt-2 text-cyan-100 text-xl">
-                    For a more dierct contact solution please leave your Name,
+                    For a more direct contact solution please leave your Name,
                     Email and a brief message. Look forward to hearing from you!
                   </p>
                 </div>
