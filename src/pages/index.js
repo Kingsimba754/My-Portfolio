@@ -16,6 +16,7 @@ import frontend from "public/Frontend.jpg";
 import backend from "public/Backend.jpg";
 import web1 from "public/web1.jpg";
 import web2 from "public/web-2.png";
+import web3 from "public/Weather.png"
 import React, { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -192,7 +193,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col md:flex-row items-center mx-auto shadow-lg p-10 rounded-xl space-x-2 my-10 gap-10">
             <div className="flex flex-col md:w-1/2 dark:text-white">
-              <h3 className="text-2xl font-burtons text-yellow-500 dark:text-white">
+              <h3 className="text-2xl font-burtons text-yellow-500 dark:text-yellow-500">
                 Rummage
               </h3>
               <p>
@@ -243,6 +244,31 @@ export default function Home() {
               <Image
                 className="rounded-md max-w-sm md:max-w-full"
                 src={web2}
+                width={300}
+                height={300}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center mx-auto shadow-lg p-10 rounded-xl space-x-2 my-10 gap-10">
+            <div className="flex flex-col md:w-1/2 dark:text-white">
+              <h3 className="text-2xl font-burtons text-yellow-500 dark:text-yellow-500">
+                Next Weather App
+              </h3>
+              <p>
+                Next Weather App is an Web Application that takes Advantages of the Open Weather Map API. Built on Next.js it uses TailwindCSS for styling and Vercel for deployment.
+                Search any city in the USA to display the Tempeture the "Feels like Tempeture" as well as Humidity and wind speed.
+              </p>
+              <a
+                href="https://github.com/Kingsimba754/Weather-app"
+                target={"_blank"}
+              >
+                <AiFillGithub className=" text-5xl mt-10 mx-auto" />
+              </a>
+            </div>
+            <div className="flex justify-center md:w-1/2">
+              <Image
+                className="rounded-md max-w-sm md:max-w-full"
+                src={web3}
                 width={300}
                 height={300}
               />
