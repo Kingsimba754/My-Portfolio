@@ -227,7 +227,7 @@ export default function Home() {
               <p>
                 "What to watch!" was one of the first projects that i worked on.
                 Accessing an API and displaying information on the DOM was the
-                ultimate Goal of of this project. Using Technolgies such as
+                ultimate Goal of this project. Using Technolgies such as
                 JavaScript and Jquery i was able to generate a random movie
                 suggestion from the API. Allowing users to free up time from
                 endless searching for a movie or TV show to watch. This website
