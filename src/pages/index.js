@@ -158,6 +158,7 @@ export default function Home() {
               <p className=" text-gray-800 py-1 dark:text-white">HTML5</p>
               <p className=" text-gray-800 py-1 dark:text-white">CSS3</p>
               <p className=" text-gray-800 py-1 dark:text-white">React</p>
+              <p className=" text-gray-800 py-1 dark:text-white">Python</p>
               <p className=" text-gray-800 py-1 dark:text-white">Next Js</p>
               <p className=" text-gray-800 py-1 dark:text-white">jQuery</p>
               <p className=" text-gray-800 py-1 dark:text-white">TailWindCSS</p>
